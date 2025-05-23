@@ -23,20 +23,23 @@ public class binarysearch{
         // }
         // System.out.println(result);
         int[] arr = {10,20,30,40,30,20,10};
-        int low = 0;
-        int high = arr.length - 1;
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for ( int i=0; i < arr.length; i++){
-            if (arr[i] < min){
-                min = arr[i];
-            }
-            if (arr[i] > max){
-                max = arr[i];
-            }
+        int low = 1;
+        int high = arr.length - 2;
+        int ans = 0;
+        
+        while(low<=high){
+            int mid = low +(high - low)/2;
+            if(arr[mid] > arr[mid + 1] && arr[mid] > arr[mid - 1]){
+                ans = mid;
+                break;
+        }else if (arr[mid] > arr[mid -1] && arr[mid] < arr[mid + 1]){
+            low = mid + 1;
+        }else{
+            high = mid - 1;
         }
-        System.out.println("Maximum value: " + max);
+
 
     }
+}
 
 }
